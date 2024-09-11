@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: ${ENV:dev}
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/db_parking_management
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
