@@ -1,10 +1,14 @@
 package com.fcamara.parking.management.dtos.responses;
 
-import lombok.Builder;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "ErrorResponse")
 public class ErrorResponseDTO {
 
     private String message;
@@ -12,9 +16,6 @@ public class ErrorResponseDTO {
     private String code;
 
     public static ErrorResponseDTO fromDTO(String message, String code) {
-        return ErrorResponseDTO.builder()
-                .message(message)
-                .code(code)
-                .build();
+        return new ErrorResponseDTO(message, code);
     }
 }

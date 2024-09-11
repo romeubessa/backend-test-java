@@ -1,23 +1,25 @@
 package com.fcamara.parking.management.dtos.responses;
 
-import lombok.Builder;
+import com.fcamara.parking.management.dtos.HourlyParkingSummaryDTO;
+import jakarta.xml.bind.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "HourlyParkingSummaryResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class HourlyParkingSummaryResponseDTO {
 
-    private String hour;
+    @XmlElementWrapper(name = "summaries")
+    @XmlElement(name = "summary")
+    private List<HourlyParkingSummaryDTO> summaries;
 
-    private long totalEntries;
-
-    private long totalExits;
-
-    public static HourlyParkingSummaryResponseDTO toDTO(String hour, long totalEntries, long totalExits) {
-        return HourlyParkingSummaryResponseDTO.builder()
-                .hour(hour)
-                .totalEntries(totalEntries)
-                .totalExits(totalExits)
-                .build();
+    public static HourlyParkingSummaryResponseDTO toDTO(List<HourlyParkingSummaryDTO> summaries) {
+        return new HourlyParkingSummaryResponseDTO(summaries);
     }
 }

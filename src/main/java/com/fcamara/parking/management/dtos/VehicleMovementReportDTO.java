@@ -1,10 +1,9 @@
-package com.fcamara.parking.management.dtos.responses;
+package com.fcamara.parking.management.dtos;
 
 import com.fcamara.parking.management.adapters.LocalDateTimeAdapter;
 import com.fcamara.parking.management.models.ParkingTransaction;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,11 +14,10 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "ParkingTransactionResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ParkingTransactionResponseDTO {
+public class VehicleMovementReportDTO {
 
-    private String id;
+    private String vehiclePlate;
 
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime entryDate;
@@ -27,7 +25,7 @@ public class ParkingTransactionResponseDTO {
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime exitDate;
 
-    public static ParkingTransactionResponseDTO toDTO(ParkingTransaction parkingTransaction) {
-        return new ParkingTransactionResponseDTO(parkingTransaction.getId(), parkingTransaction.getEntryDate(), parkingTransaction.getExitDate());
+    public static VehicleMovementReportDTO toDTO(ParkingTransaction parkingTransaction) {
+        return new VehicleMovementReportDTO(parkingTransaction.getVehicle().getPlate(), parkingTransaction.getEntryDate(), parkingTransaction.getExitDate());
     }
 }

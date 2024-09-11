@@ -1,6 +1,5 @@
 package com.fcamara.parking.management.dtos.requests;
 
-import com.fcamara.parking.management.models.Establishment;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -28,15 +27,4 @@ public class EstablishmentRequestDTO {
 
     @NotNull
     private Integer carSpots;
-
-    public Establishment toModel() {
-        return Establishment.builder()
-                .name(this.name)
-                .cnpj(this.cnpj)
-                .address(this.address)
-                .phone(this.phone)
-                .motorcycleSpots(this.motorcycleSpots)
-                .carSpots(this.carSpots)
-                .build();
-    }
 }

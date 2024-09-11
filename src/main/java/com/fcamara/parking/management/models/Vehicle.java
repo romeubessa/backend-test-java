@@ -1,14 +1,19 @@
 package com.fcamara.parking.management.models;
 
+import com.fcamara.parking.management.dtos.requests.VehicleRequestDTO;
 import com.fcamara.parking.management.enums.VehicleTypeEnum;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "vehicle")
 public class Vehicle {
 
@@ -31,4 +36,14 @@ public class Vehicle {
 
     @NotBlank
     private VehicleTypeEnum type;
+
+    public static Vehicle toModel(VehicleRequestDTO vehicleRequestDTO) {
+        return Vehicle.builder()
+                .brand(vehicleRequestDTO.getBrand())
+                .model(vehicleRequestDTO.getModel())
+                .color(vehicleRequestDTO.getColor())
+                .plate(vehicleRequestDTO.getPlate())
+                .type(VehicleTypeEnum.getVehicleType(vehicleRequestDTO.getType()))
+                .build();
+    }
 }

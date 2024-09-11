@@ -1,17 +1,19 @@
 package com.fcamara.parking.management.models;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@XmlRootElement
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "parking_transaction")
 public class ParkingTransaction {
 

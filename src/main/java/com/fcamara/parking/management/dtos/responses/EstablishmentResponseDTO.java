@@ -1,33 +1,26 @@
 package com.fcamara.parking.management.dtos.responses;
 
+import com.fcamara.parking.management.dtos.EstablishmentDTO;
 import com.fcamara.parking.management.models.Establishment;
-import lombok.Builder;
+import jakarta.xml.bind.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "VehicleResponse")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class EstablishmentResponseDTO {
 
-    private String id;
+    @XmlElementWrapper(name = "establishments")
+    @XmlElement(name = "establishment")
+    private List<EstablishmentDTO> establishments;
 
-    private String name;
-
-    private String address;
-
-    private String phone;
-
-    private Integer motorcycleSpots;
-
-    private Integer carSpots;
-
-    public static EstablishmentResponseDTO toDTO(Establishment establishment) {
-        return EstablishmentResponseDTO.builder()
-                .id(establishment.getId())
-                .name(establishment.getName())
-                .address(establishment.getAddress())
-                .phone(establishment.getPhone())
-                .motorcycleSpots(establishment.getMotorcycleSpots())
-                .carSpots(establishment.getCarSpots())
-                .build();
+    public static EstablishmentResponseDTO toDTO(List<Establishment> establishments) {
+        return new EstablishmentResponseDTO(establishments.stream().map(EstablishmentDTO::toDTO).toList());
     }
 }
