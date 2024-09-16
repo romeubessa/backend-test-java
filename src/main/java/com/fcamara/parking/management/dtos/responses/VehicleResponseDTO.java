@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "VehicleResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class VehicleResponseDTO {
 

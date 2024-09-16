@@ -11,7 +11,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "VehicleMovementReportResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class VehicleMovementReportResponseDTO {
 

@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "ParkingTransactionResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ParkingTransactionResponseDTO {
 

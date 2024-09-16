@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/vehicles")
 @RequiredArgsConstructor

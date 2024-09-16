@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "ParkingSummaryResponse")
 public class ParkingSummaryResponseDTO {
 
     private long totalEntries;

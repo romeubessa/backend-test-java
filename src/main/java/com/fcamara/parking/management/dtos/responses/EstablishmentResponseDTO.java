@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "VehicleResponse")
+@XmlRootElement(name = "EstablishmentResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EstablishmentResponseDTO {
 
