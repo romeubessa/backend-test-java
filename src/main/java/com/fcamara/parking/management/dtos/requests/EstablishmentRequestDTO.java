@@ -12,14 +12,12 @@ public class EstablishmentRequestDTO {
     private String name;
 
     @NotBlank
-    @Pattern(regexp = "\\d{14}", message = "CNPJ must be 14 digits")
     private String cnpj;
 
     @NotBlank
     private String address;
 
     @NotBlank
-    @Pattern(regexp = "\\(\\d{2}\\) \\d{4,5}-\\d{4}", message = "Phone must follow the pattern (XX) XXXX-XXXX or (XX) XXXXX-XXXX")
     private String phone;
 
     @NotNull

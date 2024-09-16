@@ -17,6 +17,8 @@ public class EstablishmentDTO {
 
     private String name;
 
+    private String cnpj;
+
     private String address;
 
     private String phone;
@@ -26,6 +28,6 @@ public class EstablishmentDTO {
     private Integer carSpots;
 
     public static EstablishmentDTO toDTO(Establishment establishment) {
-        return new EstablishmentDTO(establishment.getId(), establishment.getName(), establishment.getAddress(), establishment.getPhone(), establishment.getMotorcycleSpots(), establishment.getCarSpots());
+        return new EstablishmentDTO(establishment.getId(), establishment.getName(), establishment.getCnpj(), establishment.getAddress(), establishment.getPhone(), establishment.getMotorcycleSpots(), establishment.getCarSpots());
     }
 }
